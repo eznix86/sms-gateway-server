@@ -71,12 +71,14 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
       volumes:
+        {{- if and .Values.config.secret.enabled .Values.config.unsecure.enabled }}
+        {{- fail "Only one of config.secret.enabled or config.unsecure.enabled may be true" }}
+        {{- end }}
         {{- if .Values.config.secret.enabled }}
         - name: config-volume
           secret:
-            secretName: {{ .Values.config.secret.secretName }}
-        {{- end }}
-        {{- if .Values.config.unsecure.enabled }}
+            secretName: {{ required "Values.config.secret.secretName is required when config.secret.enabled is true" .Values.config.secret.secretName }}
+        {{- else if .Values.config.unsecure.enabled }}
         - name: config-volume
           configMap:
             name: {{ include "sms-gateway-server.fullname" $ }}-config
