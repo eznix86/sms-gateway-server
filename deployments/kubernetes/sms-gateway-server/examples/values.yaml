@@ -23,3 +23,9 @@ config:
     secretName: "sms-gateway-config"
   unsecure:
     enabled: false
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
