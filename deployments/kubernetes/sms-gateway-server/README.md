@@ -5,7 +5,7 @@ A Helm chart for deploying the SMS Gateway Server on Kubernetes.
 ## Installation
 
 ```bash
-helm repo add sms-gateway-server https://android-sms-gateway.github.io/server
+helm repo add android-sms-gateway https://android-sms-gateway.github.io/server
 
 helm upgrade --install sms-gateway-server  \
   --namespace sms-gateway-system \
@@ -27,8 +27,8 @@ This chart supports three configuration methods:
 | Parameter | Description | Default |
 |-----------|-------------|---------|
 | `replicaCount` | Number of replicas | `1` |
-| `image.repository` | Container image repository | `capcom6/sms-gateway` |
-| `image.tag` | Container image tag | `""` (uses Chart.AppVersion) |
+| `image.repository` | Container image repository | `ghcr.io/android-sms-gateway/server` |
+| `image.tag`        | Container image tag | `""` (uses Chart.AppVersion) |
 | `image.pullPolicy` | Image pull policy | `IfNotPresent` |
 | `service.type` | Kubernetes service type | `ClusterIP` |
 | `service.port` | Service port | `8080` |
