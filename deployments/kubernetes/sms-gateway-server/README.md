@@ -352,4 +352,4 @@ For complete examples, see:
 
 - **[examples/values.yaml](examples/values.yaml)** - Example Helm values configuration with external secret setup
 
-- **[configs/config.example.yml](../../configs/config.example.yml)** - Complete application configuration reference
+- **[configs/config.example.yml](../../../configs/config.example.yml)** - Complete application configuration reference
