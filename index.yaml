@@ -3,6 +3,22 @@ entries:
   sms-gateway-server:
   - apiVersion: v2
     appVersion: 1.29.0
+    created: "2025-09-04T18:24:12.051054112Z"
+    description: A Helm chart for Kubernetes to deploy sms-gateway-server.
+    digest: cb7519892804b53bb580325746eb7f20ea9cf0c41e74d15a5e2b884b804af4f0
+    home: https://github.com/android-sms-gateway/server
+    maintainers:
+    - email: support@sms-gate.app
+      name: SMSGate Team
+    name: sms-gateway-server
+    sources:
+    - https://github.com/android-sms-gateway/server
+    type: application
+    urls:
+    - https://github.com/eznix86/sms-gateway-server/releases/download/sms-gateway-server-0.2.10/sms-gateway-server-0.2.10.tgz
+    version: 0.2.10
+  - apiVersion: v2
+    appVersion: 1.29.0
     created: "2025-09-04T17:09:01.028145971Z"
     description: A Helm chart for Kubernetes to deploy sms-gateway-server.
     digest: 6c3aa89724b9348ae23015a24502973e1bc7cfa25ea709ddbdd4e337bfa0ae07
@@ -53,4 +69,4 @@ entries:
     urls:
     - https://github.com/eznix86/sms-gateway-server/releases/download/sms-gateway-server-0.1.0/sms-gateway-server-0.1.0.tgz
     version: 0.1.0
-generated: "2025-09-04T17:09:01.028165718Z"
+generated: "2025-09-04T18:24:12.051078999Z"
