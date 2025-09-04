@@ -46,7 +46,7 @@ spec:
             - name: DEBUG
               value: "1"
             {{- end }}
-            {{- with.Values.extraEnv }}
+            {{- with .Values.extraEnv }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
           ports:
@@ -65,15 +65,17 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          
-          {{- if or .Values.config.secret.enabled .Values.config.unsecure.enabled }}
+          {{- if or (or .Values.config.secret.enabled .Values.config.unsecure.enabled) .Values.volumeMounts }}
           volumeMounts:
+          {{- if or .Values.config.secret.enabled .Values.config.unsecure.enabled }}
             - name: config-volume
               mountPath: /app/config.yml
               subPath: config.yml
+              readOnly: true
           {{- end }}
           {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
+          {{- end }}
           {{- end }}
       volumes:
         {{- if and .Values.config.secret.enabled .Values.config.unsecure.enabled }}

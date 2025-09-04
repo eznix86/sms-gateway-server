@@ -25,7 +25,8 @@ jobs:
       - name: Bump Chart.yaml
         run: |
           TAG_VERSION=${GITHUB_REF#refs/tags/}
-          CHART_FILE=deployments/kubernetes/Chart.yaml
+          TAG_VERSION=${TAG_VERSION#v}
+          CHART_FILE=deployments/kubernetes/sms-gateway-server/Chart.yaml
 
           # Extract current version
           CURRENT_VERSION=$(awk '/^version:/ {print $2}' $CHART_FILE)
@@ -37,7 +38,7 @@ jobs:
 
           # Update Chart.yaml
           sed -i "s/^version:.*/version: $NEW_VERSION/" $CHART_FILE
-          sed -i "s/^appVersion:.*/appVersion: $TAG_VERSION/" $CHART_FILE
+          sed -i "s/^appVersion:.*/appVersion: \"$TAG_VERSION\"/" $CHART_FILE
 
           # Commit and push changes
           git add $CHART_FILE
