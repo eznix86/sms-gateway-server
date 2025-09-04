@@ -4,6 +4,7 @@ metadata:
   name: {{ include "sms-gateway-server.fullname" . }}
   labels:
     {{- include "sms-gateway-server.labels" . | nindent 4 }}
+    app.kubernetes.io/component: service
 spec:
   type: {{ .Values.service.type }}
   ports:

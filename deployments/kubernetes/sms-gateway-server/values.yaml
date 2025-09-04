@@ -3,7 +3,7 @@ replicaCount: 1
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: capcom6/sms-gateway
+  repository: ghcr.io/android-sms-gateway/server
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
@@ -112,9 +112,14 @@ config:
   debug: false
   secret:
     enabled: false
+    # Define your secret and deploy it with any name below but it should be in the same namespace
+    # see configs/config.example.yml
     secretName: "sms-gateway-server-config"
   unsecure:
     enabled: false
+    # If you do not care, just enable unsecure, it will create
+    # a config for you and it will apply what you configured. 
+    # configs/config.example.yml, DO NOT USE the default config below
     configYml: >-
       gateway: # gateway config
         mode: private # gateway mode (public - allow anonymous device registration, private - protected registration) [GATEWAY__MODE]

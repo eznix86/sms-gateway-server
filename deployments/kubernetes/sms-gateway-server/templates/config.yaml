@@ -5,6 +5,7 @@ metadata:
   name: {{ include "sms-gateway-server.fullname" . }}-config
   labels:
     {{- include "sms-gateway-server.labels" . | nindent 4 }}
+    app.kubernetes.io/component: configmap
 data:
   config.yml: |
     {{ .Values.config.unsecure.configYml | nindent 4 }}
