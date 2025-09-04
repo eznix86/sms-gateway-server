@@ -4,6 +4,13 @@ description: A Helm chart for Kubernetes to deploy sms-gateway-server.
 
 type: application
 
-version: 0.2.6
+version: 0.2.7
 
-appVersion: "1.28.1"
+appVersion: "1.29.0"
+
+home: https://github.com/android-sms-gateway/server
+sources:
+  - https://github.com/android-sms-gateway/server
+maintainers:
+  - name: SMSGate Team
+    email: support@sms-gate.app
