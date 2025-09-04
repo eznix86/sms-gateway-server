@@ -6,11 +6,14 @@ A Helm chart for deploying the SMS Gateway Server on Kubernetes.
 
 ```bash
 helm repo add android-sms-gateway https://android-sms-gateway.github.io/server
+helm repo update
 
 helm upgrade --install sms-gateway-server  \
   --namespace sms-gateway-system \
   --create-namespace \
   -f your-values.yaml \
+  # optionally pin a chart version for reproducible installs:
+  # --version X.Y.Z \
   android-sms-gateway/sms-gateway-server
 ```
 
@@ -266,6 +269,10 @@ config:
         database: sms_gateway
 ```
 
+> For production: run your database as a managed/external service with backups
+> and durable storage. Avoid in-cluster ephemeral databases unless explicitly
+> configured with PersistentVolumeClaims and a proper HA/backup strategy.
+
 ### Production Deployment with External Secret
 
 ```yaml
@@ -318,7 +325,7 @@ extraEnv:
 
 ## Security Considerations
 
-**Always use external secrets in production** for sensitive configuration values
+**Always use external secrets in production** for sensitive configuration values.
 
 ## Troubleshooting
 
