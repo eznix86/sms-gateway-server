@@ -6,7 +6,8 @@ type: application
 
 version: 0.2.10
 
-appVersion: "1.29.0"
+# appVersion is always updated in CI
+appVersion: "latest"
 
 home: https://github.com/android-sms-gateway/server
 sources:
