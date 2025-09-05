@@ -60,7 +60,7 @@ config:
 
 extraEnv:
   - name: HTTP__API__HOST
-    value: https://sms-gateway.parksmart.mu
+    value: https://sms.example.com
   - name: HTTP__OPENAPI__ENABLED
     value: "true"
   - name: HTTP__API__PATH
